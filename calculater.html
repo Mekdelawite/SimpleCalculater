@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+          body {
+  font-family: Arial, sans-serif;
+  background-color: #f4f4f4;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background: rgb(16, 16, 16);
+}
+
+div {
+
+  width: 300px;
+  background-color: #050505;
+  border-radius: 10px;
+  padding: 20px;
+  box-shadow: 1px 1px 50px #012290f7
+       ,1px 1px 90px #012290f7,1px 1px 120px #012290f7;
+}
+button {
+  width: 50px;
+  height: 50px;
+  font-size: 20px;
+  margin: 5px;
+  border: none;
+  border-radius: 5px;
+  background-color: #818c81;
+  color: white;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+ button:hover {
+  background-color: #090909;
+   box-shadow: 1px 1px 20px #012290f7
+       ,1px 1px 40px #012290f7,1px 1px 80px #012290f7;
+}  
+input[type="text"] {
+  width: calc(100% - 10px);
+  padding: 10px;
+  margin-bottom: 10px;
+  border: 1px solid #ed0808;
+  border-radius: 5px;
+  font-size: 20px;
+  text-align: right;
+}
+
+   </style>
+</head>
+<body>
+    
+    <div>
+        <h1 class="heade" style="padding-left: 25px;color: #4CAF50;">Html Calculater</h1>
+     <table>
+        
+            <input type="text" id="input" requered placeholder="Enter Number" readonly style="margin-bottom: 20px;">
+        
+     <tr>
+       <td><button class="btnclear" onclick="clearInput()">C</button></td>
+       <td><button class="btn7" onclick="document.querySelector('input').value +='7'">7</button></td>
+       <td><button class="btn8" onclick="document.querySelector('input').value +='8'">8</button></td>
+       <td><button class="btn9" onclick="document.querySelector('input').value +='9'">9</button></td>
+     </tr>
+       <tr>
+       <td><button class="btn/" onclick="document.querySelector('input').value +='/'">/</button></td>
+       <td><button class="btn4" onclick="document.querySelector('input').value +='4'">4</button></td>
+       <td><button class="btn5" onclick="document.querySelector('input').value +='5'">5</button></td>
+       <td><button class="btn6" onclick="document.querySelector('input').value +='6'">6</button></td>
+     </tr>
+       <tr>
+       <td><button class="btn*" onclick="document.querySelector('input').value +='*'">*</button></td>
+       <td><button class="btn1" onclick="document.querySelector('input').value +='1'">1</button></td>
+       <td><button class="btn2" onclick="document.querySelector('input').value +='2'">2</button></td>
+       <td><button>3</button></td>
+     </tr>
+        <tr>
+       <td><button class="btn-" onclick="document.querySelector('input').value +='-'">-</button></td>
+       <td><button class="btn0" onclick="document.querySelector('input').value +='0'">0</button></td>
+       <td><button class="btn." onclick="document.querySelector('input').value +='.'">.</button></td>
+       <td><button id="onme" onclick="calculate()">=</button></td>
+     </tr>
+        <tr>
+       <td><button class="btn+" onclick="document.querySelector('input').value +='+'">+</button></td>
+       <td><button class="btnX" onclick="ClearSingleChar()">X</button></td>
+     </tr>
+     </table>   
+    </div>
+    <script>
+      
+function calculate(){
+  const inputf=document.getElementById('input').value;
+  const result=eval(inputf);
+  document.getElementById('input').value=result;
+}
+function clearInput()
+{
+ document.getElementById("input").value = " ";
+}
+const btn =document.querySelector('#onme');
+btn.addEventListener('click', function()
+ {
+  const input = document.querySelector('input').value;
+  if (input === '272116') {
+    alert("You are a genius!");
+    document.getElementById('input').value = "You are Genius!";
+    // Add animation to the calculator div
+    const calcDiv = document.querySelector('div');
+    calcDiv.style.animation = "geniusAnim 1s ease-in-out";
+    // Remove animation after it ends so it can be triggered again
+    calcDiv.addEventListener('animationend', function handler() {
+      calcDiv.style.animation = "";
+      calcDiv.removeEventListener('animationend', handler);
+    });
+  } else {
+    alert("You are not a genius.");
+  }
+});
+
+function ClearSingleChar()
+{
+ 
+ const singlechar=document.getElementById('input').value.addEventListener;
+singlechar.removeEventListener;
+}
+    </script>
+</body>
+</html>
